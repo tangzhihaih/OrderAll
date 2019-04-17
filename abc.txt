@@ -1,0 +1,65 @@
+package com.tang;
+
+import java.io.*;
+
+/**
+ * Created by Administrator on 2018/11/24.
+ */
+public class Buffered {
+    public static void main(String[] args) {
+        try {
+            BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter("abc.txt",true));
+            bufferedWriter.write("dbjbdsk");
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader bufferedReader=new BufferedReader(new FileReader("abc.txt"));
+            /*int ch;
+            while ((ch=bufferedReader.read())!=-1){
+                System.out.print(""+(char)ch);
+
+            }*/
+            char[] by=new char[1024];
+            int len;
+            while ((len=bufferedReader.read(by))!=-1){
+                System.out.println("________________"+new String(by,0,len));
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+dbjbdskdbjbdskhello0
+hello1
+hello2
+hello3
+hello4
+hello5
+hello6
+hello7
+hello8
+hello9
+dbjbdskhello0
+hello1
+hello2
+hello3
+hello4
+hello5
+hello6
+hello7
+hello8
+hello9
+dbjbdskhello0
+hello1
+hello2
+hello3
+hello4
+hello5
+hello6
+hello7
+hello8
+hello9
